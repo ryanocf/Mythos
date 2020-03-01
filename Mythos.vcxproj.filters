@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="console">
+      <UniqueIdentifier>{d76c394e-8ace-474b-ab11-e3aeff1e288d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menu">
+      <UniqueIdentifier>{ae5c1307-1c70-4dcb-87d2-809700dd9f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="options">
+      <UniqueIdentifier>{6f74d831-ea53-4949-8df9-cabdd7094ca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{0ca3d690-0d87-4273-b814-fcda0ec56788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features">
+      <UniqueIdentifier>{2ecb8361-4d1b-4a50-b563-e8e0973ac945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features\miscellaneous">
+      <UniqueIdentifier>{5636092d-7203-490d-88ee-a460d25a5bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{c82637f3-c34d-43f7-97e9-6080c1df7ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\dx11">
+      <UniqueIdentifier>{92a7a95f-0448-4300-9ea2-19cb637b74b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render">
+      <UniqueIdentifier>{337117d5-7089-4ccd-8610-3e95a58aa11a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\process">
+      <UniqueIdentifier>{22783d80-5b97-434f-a8f3-caf9664b2f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\math">
+      <UniqueIdentifier>{9f826269-ae97-43c8-a6f5-c4367c8c8370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menu\fonts">
+      <UniqueIdentifier>{b81b080e-8eb9-4829-b700-a6ea5d32c2c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="drawing">
+      <UniqueIdentifier>{ea59d521-ed49-4a3e-8c8b-f9f3f1cd3a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features\visuals">
+      <UniqueIdentifier>{adf6d5a0-65aa-436f-bfe7-8dfecfadc0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features\aimbot">
+      <UniqueIdentifier>{4438d1b6-7725-484e-9c87-a76d31f0e2b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="features\triggerbot">
+      <UniqueIdentifier>{c37c9704-ede8-4e3b-8aad-77a75efbcf28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\dx11\imgui_impl_dx11.cpp">
+      <Filter>imgui\dx11</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\dx11\imgui_impl_win32.cpp">
+      <Filter>imgui\dx11</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\utils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\process\process.cpp">
+      <Filter>utils\process</Filter>
+    </ClCompile>
+    <ClCompile Include="render\render.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="options\options.cpp">
+      <Filter>options</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\menu.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="features\miscellaneous\miscellaneous.cpp">
+      <Filter>features\miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="console\console.cpp">
+      <Filter>console</Filter>
+    </ClCompile>
+    <ClCompile Include="drawing\drawing.cpp">
+      <Filter>drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="features\visuals\visuals.cpp">
+      <Filter>features\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\math\math.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="options\offsets.cpp">
+      <Filter>options</Filter>
+    </ClCompile>
+    <ClCompile Include="features\aimbot\aimbot.cpp">
+      <Filter>features\aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="features\triggerbot\triggerbot.cpp">
+      <Filter>features\triggerbot</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\fonts\astriumwep.cpp">
+      <Filter>menu\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="drawing\custom_imgui.cpp">
+      <Filter>drawing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\dx11\imgui_impl_dx11.h">
+      <Filter>imgui\dx11</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\dx11\imgui_impl_win32.h">
+      <Filter>imgui\dx11</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h" />
+    <ClInclude Include="utils\utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\process\process.h">
+      <Filter>utils\process</Filter>
+    </ClInclude>
+    <ClInclude Include="render\render.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="options\offsets.h">
+      <Filter>options</Filter>
+    </ClInclude>
+    <ClInclude Include="options\options.h">
+      <Filter>options</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\menu.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="features\miscellaneous\miscellaneous.h">
+      <Filter>features\miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="console\console.h">
+      <Filter>console</Filter>
+    </ClInclude>
+    <ClInclude Include="drawing\drawing.h">
+      <Filter>drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="features\visuals\visuals.h">
+      <Filter>features\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\math\math.h">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="features\aimbot\aimbot.h">
+      <Filter>features\aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="features\triggerbot\triggerbot.h">
+      <Filter>features\triggerbot</Filter>
+    </ClInclude>
+    <ClInclude Include="drawing\custom_imgui.h">
+      <Filter>drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\math\v2.h">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\math\v3.h">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\math\v4.h">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
