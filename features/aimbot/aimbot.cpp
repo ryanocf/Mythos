@@ -8,7 +8,12 @@ auto Aimbot::start() -> void
 		if (!dw_local_player)
 			return;
 
-		DWORD_PTR dw_entity = get_closest_target_to_crosshair(dw_local_player);
+		DWORD_PTR dw_entity;
+		if (!Options::i_aimbot_mode)
+			dw_entity = get_closest_target_to_crosshair(dw_local_player);
+		else
+			dw_entity = get_closest_target_to_position(dw_local_player);
+
 		if (!dw_entity)
 			return;
 
@@ -65,8 +70,34 @@ auto Aimbot::get_closest_target_to_crosshair(DWORD_PTR dw_local_player) -> DWORD
 
 auto Aimbot::get_closest_target_to_position(DWORD_PTR dw_local_player) -> DWORD_PTR
 {
-	DWORD_PTR lol = 1;
-	return lol;
+	DWORD_PTR dw_best_entity = NULL;
+	float f_lowest_distance = 9999;
+
+	int player_count = offsets->get_player_count();
+	for (auto i = 1; i < player_count; i++)
+	{
+		DWORD_PTR dw_entity = process->read<DWORD_PTR>(offsets->get_entity_list() + 0x4 * i);
+		if (!dw_entity)
+			continue;
+
+		if (offsets->is_entity_dead(dw_entity))
+			continue;
+
+		if (offsets->get_entity_team(dw_local_player) == offsets->get_entity_team(dw_entity) && !Options::b_aimbot_attack_team)
+			continue;
+
+		v3 v3_entity_head = offsets->get_entity_head(dw_entity);
+		v3 v3_player_head = offsets->get_entity_head(dw_local_player);
+
+		float f_distance = v3_entity_head.dist_to_sqr(v3_player_head);
+
+		if (f_distance < f_lowest_distance)
+		{
+			f_lowest_distance = f_distance;
+			dw_best_entity = dw_entity;
+		}
+	}
+	return dw_best_entity;
 }
 
 Aimbot* aimbot = new Aimbot();

@@ -22,7 +22,7 @@ auto Aimbot() -> void
     }
 }
 
-auto Features() -> void
+auto Triggerbot() -> void
 {
     while (1)
     {
@@ -30,6 +30,14 @@ auto Features() -> void
         if (Options::b_triggerbot_active)
             triggerbot->start();
 
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    }
+}
+
+auto Misc() -> void
+{
+    while (1)
+    {
         // misc
         if (Options::b_misc_unlimted_health) {
             misc->unlimited_health();
@@ -86,9 +94,13 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     thread_aimbot.detach();
     std::cout << "[THREAD] Aimbot started!" << std::endl;
 
-    std::thread thread_features(Features);
-    thread_features.detach();
-    std::cout << "[THREAD] Features started!" << std::endl;
+    std::thread thread_trigger(Triggerbot);
+    thread_trigger.detach();
+    std::cout << "[THREAD] Triggerbot started!" << std::endl;
+
+    std::thread thread_misc(Misc);
+    thread_misc.detach();
+    std::cout << "[THREAD] Misc started!" << std::endl;
 
     std::cout << "[THREAD] Main started!" << std::endl;
 

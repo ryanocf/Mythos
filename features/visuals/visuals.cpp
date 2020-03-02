@@ -39,9 +39,6 @@ auto Visuals::draw() -> void
 		v2 v2_head = offsets->get_entity_screen(v3_head);
 		v2 v2_foot = offsets->get_entity_screen(v3_foot);
 
-		if (Options::b_esp_aim_fov)
-			aim_fov(dw_local_player, dw_entity);
-
 		if (v2_head == v2(-1, -1) || v2_foot == v2(-1, -1))
 			continue;
 
@@ -362,8 +359,8 @@ auto Visuals::weapon(v2 v2_head, v2 v2_foot, DWORD_PTR dw_entity) -> void
 auto Visuals::distance(v2 v2_head, v2 v2_foot, v3 v3_foot, DWORD_PTR dw_local_player, DWORD_PTR dw_entity) -> void
 {
 	v3 v3_local_foot = offsets->get_entity_foot(dw_local_player);
-	v3* dis = new v3(v3_local_foot.x, v3_local_foot.y, v3_local_foot.z);
-	int dist = dis->dist_to_sqr(v3_foot) / 100;
+	//v3* dis = new v3(v3_local_foot.x, v3_local_foot.y, v3_local_foot.z);
+	int dist = v3_local_foot.dist_to_sqr(v3_foot) / 100;
 	char c[32];
 	sprintf(c, "%im", dist);
 
@@ -387,37 +384,6 @@ auto Visuals::distance(v2 v2_head, v2 v2_foot, v3 v3_foot, DWORD_PTR dw_local_pl
 		drawing->text(ImVec2(v2_foot.x - (text_pos.x / 2), v2_foot.y + i_hdif + plush), std::string(c), ImVec4(0.9f, 0.9f, 0.9f, 1.0f), true);
 	else
 		drawing->text(ImVec2(v2_foot.x - (text_pos.x / 2), v2_foot.y + i_hdif + plush), std::string(c), ImVec4(0.9f, 0.9f, 0.9f, 1.0f), true);
-}
-
-auto Visuals::aim_fov(DWORD_PTR dw_local_player, DWORD_PTR dw_entity) -> void
-{
-	v2 cam;
-	cam.x = GetSystemMetrics(SM_CXSCREEN) / 2;
-	cam.y = GetSystemMetrics(SM_CYSCREEN) / 2;
-
-	drawing->circle(ImVec2(cam.x, cam.y), Options::f_aimbot_fov, ImVec4(0.9f, 0.9f, 0.9f, 1.0f), 2.0f, true, true);
-
-	v3 v3_head = offsets->get_entity_head(dw_entity);
-	v2 v2_head = offsets->get_entity_screen(v3_head);
-	float f_distance = sqrt(pow(cam.x - v2_head.x, 2) + pow(cam.y - v2_head.y, 2));
-	if (f_distance <= Options::f_aimbot_fov && Options::f_aimbot_fov < 1103) {
-		RECT line = { cam.x, cam.y, v2_head.x, v2_head.y };
-		drawing->line(line, ImVec4(0.9f, 0.9f, 0.9f, 0.9f), 1.0f);
-
-		RECT rect = { v2_head.x - 2, v2_head.y - 2, v2_head.x + 2, v2_head.y + 2 };
-		if (dw_entity == aimbot->get_closest_target_to_crosshair(dw_local_player))
-			drawing->filled_rect(rect, Options::v4_esp_aim_fov_focused_color, true);
-		else
-			drawing->filled_rect(rect, Options::v4_esp_aim_fov_color, true);
-
-		ImVec2 v2_text_size = ImGui::CalcTextSize(std::to_string((int)f_distance).c_str());
-
-		ImVec2 v2_text_pos;
-		v2_text_pos.x = cam.x > v2_head.x ? cam.x - (cam.x - v2_head.x) / 2 - v2_text_size.x / 2 : cam.x + (v2_head.x - cam.x) / 2 - v2_text_size.x / 2;
-		v2_text_pos.y = cam.y > v2_head.y ? cam.y - (cam.y - v2_head.y) / 2 - v2_text_size.y / 2 : cam.y + (v2_head.y - cam.y) / 2 - v2_text_size.y / 2;
-
-		drawing->text(v2_text_pos, std::to_string((int)f_distance), ImVec4(0.9f, 0.9f, 0.9f, 1.0f), true);
-	}
 }
 
 Visuals* visuals = new Visuals();

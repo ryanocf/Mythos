@@ -16,6 +16,14 @@ auto Drawing::initialize() -> void
         if (Options::b_esp_active)
             visuals->draw();
 
+        if (aimbot->b_aim_fov_hovered) {
+            ImVec2 cam;
+            cam.x = GetSystemMetrics(SM_CXSCREEN) / 2;
+            cam.y = GetSystemMetrics(SM_CYSCREEN) / 2;
+
+            drawing->circle(cam, Options::f_aimbot_fov, ImVec4(0.9f, 0.9f, 0.9f, 1.0f), 1.0f, false, false);
+        }
+
         ImGui::PopFont();
     }
     ImGui::End();

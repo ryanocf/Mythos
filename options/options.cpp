@@ -38,10 +38,6 @@ namespace Options
 	bool b_esp_weapon		= false;
 	int i_esp_weapon_style	= 0; // 0: Text | 1: Icon
 
-	bool b_esp_aim_fov				= false;
-	ImVec4 v4_esp_aim_fov_color		= ImVec4(255, 0, 0, 255);
-	ImVec4 v4_esp_aim_fov_focused_color = ImVec4(0, 255, 0, 255);
-
 	// misc
 	bool b_misc_unlimted_health = false;
 

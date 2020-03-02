@@ -103,6 +103,10 @@ auto Menu::render_aim() -> void
 		ImGui::SameLine(178.0f, 0.0f);
 		ImGui::SetNextItemWidth(160.0f);
 		ImGui::SliderFloat("FOV", &Options::f_aimbot_fov, 15, 1103, "%1.0f");
+		if (ImGui::IsItemHovered())
+			aimbot->b_aim_fov_hovered = true;
+		else
+			aimbot->b_aim_fov_hovered = false;
 
 	}
 	ImGui::NextColumn();
@@ -150,7 +154,6 @@ auto Menu::render_esp() -> void
 		ImGui::Checkbox("Weapon ESP", &Options::b_esp_weapon);
 		ImGui::SetNextItemWidth(330.0f);
 		ImGui::Combo("Style##weapon", &Options::i_esp_weapon_style, "Text\0Icon\0");
-		ImGui::Checkbox("Aim Fov", &Options::b_esp_aim_fov);
 	}
 	ImGui::NextColumn();
 	{
@@ -161,18 +164,12 @@ auto Menu::render_esp() -> void
 		ImGui::Text("Team Color");
 		ImGui::SameLine(178.0f, 0.0f);
 		ImGui::ColorEdit4("Team Color", (float*)&Options::v4_esp_team_color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel | ImGuiColorEditFlags_NoAlpha | ImGuiColorEditFlags_NoTooltip);
-		ImGui::Text("Aim Spot Color");
-		ImGui::SameLine(178.0f, 0.0f);
-		ImGui::ColorEdit4("Aim Spot Color", (float*)&Options::v4_esp_aim_fov_color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel | ImGuiColorEditFlags_NoAlpha | ImGuiColorEditFlags_NoTooltip);
-		ImGui::Text("Aim Spot Focused Color");
-		ImGui::SameLine(178.0f, 0.0f);
-		ImGui::ColorEdit4("Aim Spot Focused Color", (float*)&Options::v4_esp_aim_fov_focused_color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel | ImGuiColorEditFlags_NoAlpha | ImGuiColorEditFlags_NoTooltip);
 	}
 }
 
 auto Menu::render_misc() -> void
 {
-	ImGui::Columns(2, "HEYXD", false);
+	ImGui::Columns(2, NULL, false);
 	{
 		custom_imgui->Header("Player", 1);
 		ImGui::Checkbox("Unlimited Health", &Options::b_misc_unlimted_health);

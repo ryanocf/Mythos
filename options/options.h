@@ -38,10 +38,6 @@ namespace Options
 	extern bool b_esp_weapon;
 	extern int i_esp_weapon_style;
 
-	extern bool b_esp_aim_fov;
-	extern ImVec4 v4_esp_aim_fov_color;
-	extern ImVec4 v4_esp_aim_fov_focused_color;
-
 	// misc
 	extern bool b_misc_unlimted_health;
 
