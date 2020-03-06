@@ -2,23 +2,6 @@
 
 ### Assault Cube External
 
-## Features
-
-|   Aimbot    | Triggerbot  |       ESP       |  Miscellaneous   | Config |
-| :---------: | :---------: | :-------------: | :--------------: | :----: |
-|   Active    |   Active    |     Active      | Unlimited Health | Unload |
-| Attack Team | Attack Team |    Show Team    |  Unlimited Ammo  |        |
-|     Key     |     Key     |   Health ESP    |    No Recoil     |        |
-|   Smooth    |    Delay    |  Health Style   |    Rapidfire     |        |
-|             |             | Health Position |   Force Duals    |        |
-|             |             |    Armor ESP    |                  |        |
-|             |             |   Armor Style   |                  |        |
-|             |             | Armor Position  |                  |        |
-|             |             |    Name ESP     |                  |        |
-|             |             |   Weapon ESP    |                  |        |
-|             |             |  Weapon Style   |                  |        |
-|             |             |  Distance ESP   |                  |        |
-
 ## Credits
 
 <div>A200k</div>
