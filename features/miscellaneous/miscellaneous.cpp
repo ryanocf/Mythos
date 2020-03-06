@@ -68,11 +68,4 @@ auto Miscellaneous::rapidfire() -> void
 	process->write<int>(dw_rapidfire_ptr + p_weapon->i_rapidfire, 0);
 }
 
-auto Miscellaneous::force_duals() -> void
-{
-	int dw_local_player = offsets->get_local_player();
-	if (!dw_local_player)
-		return;
-}
-
 Miscellaneous* misc = new Miscellaneous();

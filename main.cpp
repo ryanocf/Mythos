@@ -60,10 +60,6 @@ auto Misc() -> void
             misc->rapidfire();
         }
 
-        if (Options::b_misc_force_duals) {
-            misc->force_duals();
-        }
-
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 }

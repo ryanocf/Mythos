@@ -6,9 +6,8 @@ namespace Options
 	bool b_aimbot_active		= false;
 	bool b_aimbot_attack_team	= false;
 	int i_aimbot_key			= 0x01;
-	float f_aimbot_smooth		= 0.0f;
 	int i_aimbot_mode			= 0;
-	float f_aimbot_fov			= 1103;
+	float f_aimbot_fov			= 690;
 
 	// triggerbot
 	bool b_triggerbot_active		= false;
@@ -45,7 +44,6 @@ namespace Options
 	int i_misc_weapon_damage	= 0;
 	bool b_misc_no_recoil		= false;
 	bool b_misc_rapidfire		= false;
-	bool b_misc_force_duals		= false;
 
 	// menu
 	bool b_menu_open		= true;

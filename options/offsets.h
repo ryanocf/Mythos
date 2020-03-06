@@ -114,8 +114,8 @@ public:
 		"L",
 		"Z",
 		"W",
-		"j",
 		"cpistol",
+		"j",
 		"B"
 	};
 

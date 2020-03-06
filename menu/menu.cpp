@@ -22,7 +22,7 @@ auto Menu::draw() -> void
 	static int i_active = 0;
 
     ImGui::SetNextWindowSize(ImVec2(700, 500));
-    ImGui::Begin("nll", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar);
+    ImGui::Begin("menu", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar);
 	{
 		ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(10, 0));
 
@@ -98,11 +98,8 @@ auto Menu::render_aim() -> void
 
 		ImGui::SetNextItemWidth(330.0f);
 		ImGui::Combo("Mode", &Options::i_aimbot_mode, "FOV\0Distance\0");
-		ImGui::SetNextItemWidth(160.0f);
-		ImGui::SliderFloat("Smooth", &Options::f_aimbot_smooth, FLT_MIN, 20.0f, "%.1f");
-		ImGui::SameLine(178.0f, 0.0f);
-		ImGui::SetNextItemWidth(160.0f);
-		ImGui::SliderFloat("FOV", &Options::f_aimbot_fov, 15, 1103, "%1.0f");
+		ImGui::SetNextItemWidth(330.0f);
+		ImGui::SliderFloat("FOV Radius", &Options::f_aimbot_fov, 15, GetSystemMetrics(SM_CYSCREEN) * 1.03, "%1.0f");
 		if (ImGui::IsItemHovered())
 			aimbot->b_aim_fov_hovered = true;
 		else
@@ -191,7 +188,6 @@ auto Menu::render_misc() -> void
 		ImGui::SliderInt("Weapon Damage", &Options::i_misc_weapon_damage, 0, 256, "%d");
 		ImGui::Checkbox("No Recoil", &Options::b_misc_no_recoil);
 		ImGui::Checkbox("Rapidfire", &Options::b_misc_rapidfire);
-		ImGui::Checkbox("Force Dual Wield", &Options::b_misc_force_duals);
 	}
 }
 

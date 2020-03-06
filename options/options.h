@@ -6,7 +6,6 @@ namespace Options
 	extern bool b_aimbot_active;
 	extern bool b_aimbot_attack_team;
 	extern int i_aimbot_key;
-	extern float f_aimbot_smooth;
 	extern int i_aimbot_mode;
 	extern float f_aimbot_fov;
 
@@ -45,7 +44,6 @@ namespace Options
 	extern int i_misc_weapon_damage;
 	extern bool b_misc_no_recoil;
 	extern bool b_misc_rapidfire;
-	extern bool b_misc_force_duals;
 
 	// menu
 	extern bool b_menu_open;

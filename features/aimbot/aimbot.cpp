@@ -16,10 +16,8 @@ auto Aimbot::start() -> void
 
 		if (!dw_entity)
 			return;
-
-		//process->write<BYTE>(dw_local_player + p_entity->b_attack, 1);
+		
 		v3 v3_player_head = offsets->get_entity_head(dw_local_player);
-		v3 v3_player_view = offsets->get_entity_view(dw_local_player);
 		v3 v3_enemy_head = offsets->get_entity_head(dw_entity);
 
 		v3 v3_delta = v3_enemy_head - v3_player_head;
@@ -32,7 +30,6 @@ auto Aimbot::start() -> void
 		process->write<float>(dw_local_player + p_entity->v3_view_pos + 0x4, f_pitch);
 
 		std::this_thread::sleep_for(std::chrono::microseconds(5));
-		//process->write<BYTE>(dw_local_player + p_entity->b_attack, 0);
 	}
 }
 

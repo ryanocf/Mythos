@@ -55,10 +55,10 @@ auto Visuals::draw() -> void
 			name(v2_head, v2_foot, dw_entity);
 
 		if (Options::b_esp_distance)
-			distance(v2_head, v2_foot, v3_foot, dw_local_player, dw_entity);
+			distance(v2_foot, v3_foot, dw_local_player, dw_entity);
 
 		if (Options::b_esp_weapon)
-			weapon(v2_head, v2_foot, dw_entity);
+			weapon(v2_foot, dw_entity);
 	}
 }
 
@@ -305,7 +305,7 @@ auto Visuals::name(v2 v2_head, v2 v2_foot, DWORD_PTR dw_entity) -> void
 	drawing->text(ImVec2(v2_foot.x - (text_pos.x / 2), v2_head.y - i_hdif), name.c_str(), ImVec4(0.9f, 0.9f, 0.9f, 1.0f), true);
 }
 
-auto Visuals::weapon(v2 v2_head, v2 v2_foot, DWORD_PTR dw_entity) -> void
+auto Visuals::weapon(v2 v2_foot, DWORD_PTR dw_entity) -> void
 {
 	int weaponid = offsets->get_entity_weapon(dw_entity);
 	std::string weaponname = offsets->arr_weapon_names[weaponid];
@@ -356,7 +356,7 @@ auto Visuals::weapon(v2 v2_head, v2 v2_foot, DWORD_PTR dw_entity) -> void
 	}
 }
 
-auto Visuals::distance(v2 v2_head, v2 v2_foot, v3 v3_foot, DWORD_PTR dw_local_player, DWORD_PTR dw_entity) -> void
+auto Visuals::distance(v2 v2_foot, v3 v3_foot, DWORD_PTR dw_local_player, DWORD_PTR dw_entity) -> void
 {
 	v3 v3_local_foot = offsets->get_entity_foot(dw_local_player);
 	//v3* dis = new v3(v3_local_foot.x, v3_local_foot.y, v3_local_foot.z);

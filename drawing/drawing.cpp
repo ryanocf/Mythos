@@ -9,10 +9,12 @@ auto Drawing::initialize() -> void
 {
     ImGui::SetNextWindowSize(ImVec2(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)));
     ImGui::SetNextWindowPos(ImVec2(0, 0));
-    ImGui::Begin("test", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_None | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing);
+    ImGui::Begin("main", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_None | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing);
     {
         ImGui::PushFont(font2);
 
+        text(ImVec2(10, 1), "made by ryano", ImVec4(0.9f, 0.9f, 0.9f, 1.0f), true);
+    	
         if (Options::b_esp_active)
             visuals->draw();
 
@@ -35,8 +37,6 @@ auto Drawing::text(ImVec2 v2_pos, std::string str_text, ImVec4 v4_col, bool b_ou
     ImGuiWindow* window = g.CurrentWindow;
 
     const char* text_end = str_text.c_str() + strlen(str_text.c_str());
-
-    // Hide anything after a '##' string
     const char* text_display_end = FindRenderedTextEnd(str_text.c_str(), text_end);
 
     if (b_outline) {
