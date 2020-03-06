@@ -6,9 +6,7 @@ public:
 	Console();
 	~Console();
 
-	auto Initialize() -> bool;
-	auto Print(const char* fmt) -> void;
-	auto Clear() -> void;
+	auto initialize() -> bool;
 };
 
 extern Console* console;
